@@ -1,0 +1,46 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to count the number of lines in a text file:</h2>
+        <pre>
+            #include < iostream.h >
+#include < fstream.h >
+#include < string.h >
+
+int main() {
+    // Open the text file named "example.txt" for reading
+    std::ifstream inFile("example.txt");
+
+    // Check if the file is opened successfully
+    if (!inFile) {
+        std::cerr << "Failed to open the file.\n";
+        return 1;
+    }
+
+    // Count the number of lines in the file
+    int lineCount = 0;
+    std::string line;
+    while (std::getline(inFile, line)) {
+        ++lineCount;
+    }
+
+    // Close the file
+    inFile.close();
+
+    // Output the number of lines
+    std::cout << "Number of lines in the file: " << lineCount << std::endl;
+
+    return 0;
+}
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            This is a sample text written into the file.
+            You can add more lines as needed.
+            
+            Number of lines is the file:2       
+        </pre>
+    </body>
+</html>

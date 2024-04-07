@@ -1,0 +1,53 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to count the number of words in a text file:</h2>
+        <pre>
+            #include < iostream.h >
+#include < fstream.h >
+#include < string.h >
+#include < sstream.h >
+
+int main() {
+    // Open the text file named "example.txt" for reading
+    std::ifstream inFile("example.txt");
+
+    // Check if the file is opened successfully
+    if (!inFile) {
+        std::cerr << "Failed to open the file.\n";
+        return 1;
+    }
+
+    // Count the number of words in the file
+    int wordCount = 0;
+    std::string line;
+    while ( std :: getline(inFile, line)) {
+        std::istringstream iss(line);
+        std::string word;
+        while (iss >> word) {
+            ++wordCount;
+        }
+    }
+
+    // Close the file
+    inFile.close();
+
+    // Output the number of words
+    std::cout << "Number of words in the file: " << wordCount << std::endl;
+
+    return 0;
+}
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            content of the "example.txt" file is:
+
+            This is a sample text file.
+            It contains several words.
+            Each word will be counted.      
+            Number of words in the file:98
+        </pre>
+    </body>
+</html>

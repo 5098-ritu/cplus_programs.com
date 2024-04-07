@@ -1,0 +1,35 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Program to find the GCD and LCM of two numbers:</h2>
+        <pre>
+            #include< iostream.h>
+                #include< conio.h>
+                void main(){
+                int n1,n2,num1,num2,temp,lcm,gcd;
+                cout<<"Enter the two numbers";
+                cin>>n1>>n2;
+                num1=n1;
+                num2=n2;
+                while(num2!=0){
+                temp=num2;
+                num2=num1%num2;
+                num1=temp;
+                }
+                gcd=num1;
+                lcm=(n1*n2)/gcd;
+                cout<<"Greatest Common Divisior"<<(gcd)<<(endl);
+                cout<<"Lowest  Common Multiple"<<(lcm);
+                getch();}
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            Enter the two numbers
+            23
+            54
+            Greatest Common Divisior1
+            Lowest  Common Multiple1242
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to copy the contents of one text file to another:</h2>
+        <pre>
+            #include < iostream.h >
+#include < fstream.h >
+#include < string.h >
+
+int main() {
+    // Open the source text file for reading
+    std::ifstream sourceFile("source.txt");
+
+    // Check if the source file is opened successfully
+    if (!sourceFile) {
+        std::cerr << "Failed to open the source file.\n";
+        return 1;
+    }
+
+    // Open the destination text file for writing
+    std::ofstream destinationFile("destination.txt");
+
+    // Check if the destination file is opened successfully
+    if (!destinationFile) {
+        std::cerr << "Failed to create or open the destination file.\n";
+        return 1;
+    }
+
+    // Copy the contents of the source file to the destination file
+    std::string line;
+    while (std::getline(sourceFile, line)) {
+        destinationFile << line << '\n';
+    }
+
+    // Close both files
+    sourceFile.close();
+    destinationFile.close();
+
+    std::cout << "Contents of the source file have been copied to the destination file successfully.\n";
+
+    return 0;
+}
+
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            content of the "source.txt" file is:
+
+            This is the content of the source file.
+            It will be copied to the destination file.
+            
+            After running the program, the content of the "destination.txt" file will be:
+            
+            This is the content of the source file.
+            It will be copied to the destination file.
+            
+            And the program will output:
+            
+            Contents of the source file have been copied to the destination file successfully.        
+        </pre>
+    </body>
+</html>

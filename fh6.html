@@ -1,0 +1,64 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to find and replace a specific word in a text file:</h2>
+        <pre>
+            #include < iostream.h >
+#include < fstream.h >
+#include < string.h >
+
+int main() {
+    // Open the text file for reading
+    std::ifstream inFile("input.txt");
+
+    // Check if the file is opened successfully
+    if (!inFile) {
+        std::cerr << "Failed to open the file.\n";
+        return 1;
+    }
+
+    // Open a temporary file for writing
+    std::ofstream tempFile("temp.txt");
+
+    // Check if the temporary file is opened successfully
+    if (!tempFile) {
+        std::cerr << "Failed to create or open the temporary file.\n";
+        return 1;
+    }
+
+    // Find and replace the word
+    std::string wordToReplace = "old_word";
+    std::string newWord = "new_word";
+    std::string line;
+    while (std::getline(inFile, line)) {
+        size_t pos = line.find(wordToReplace);
+        while (pos != std::string::npos) {
+            line.replace(pos, wordToReplace.length(), newWord);
+            pos = line.find(wordToReplace, pos + newWord.length());
+        }
+        tempFile << line << '\n';
+    }
+
+    // Close both files
+    inFile.close();
+    tempFile.close();
+
+    // Remove the original file
+    remove("input.txt");
+
+    // Rename the temporary file to the original filename
+    rename("temp.txt", "input.txt");
+
+    std::cout << "Word replaced successfully.\n";
+
+    return 0;
+}
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            Word replaced successfully.       
+        </pre>
+    </body>
+</html>

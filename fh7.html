@@ -1,0 +1,45 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to append new data to an existing text file:</h2>
+        <pre>
+            #include < iostream.h >
+#include < fstream.h >
+#include < string.h >
+
+int main() {
+    // Open the text file for appending
+    std::ofstream outFile("existing_file.txt", std::ios::app);
+
+    // Check if the file is opened successfully
+    if (!outFile) {
+        std::cerr << "Failed to open the file.\n";
+        return 1;
+    }
+
+    // Append new data to the file
+    std::string newData = "This is new data appended to the existing file.\n";
+    outFile << newData;
+
+    // Close the file
+    outFile.close();
+
+    std::cout << "New data appended to the file successfully.\n";
+
+    return 0;
+}
+
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+       
+Content of file.
+This is the content of the source file.
+
+After appended.
+This is a sample text file.      
+        </pre>
+    </body>
+</html>

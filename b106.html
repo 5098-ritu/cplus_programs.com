@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Program to find factorial using recursion:</h2>
+        <pre>
+            #include< iostream.h>
+                #include< conio.h>
+                int fact(int num);
+                void main()
+                {
+                int num;
+                cout<<"\nEnter a number:";
+                cin>>num;
+                cout<<"\nFactorial of"<<(num)<<"is:"<<(fact(num));
+                cout<<(endl);
+                }int fact(int num)
+                {
+                if((num==0)||(num==1))
+                return 1;
+                else
+                return num*fact(num-1);
+                }
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            Enter a number:
+            34
+            Factorial of 34 is:2.9523
+        </pre>
+    </body>
+</html>

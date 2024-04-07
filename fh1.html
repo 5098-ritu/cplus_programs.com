@@ -1,0 +1,44 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h2>Write a C++ program to create a new text file and write some text into it:</h2>
+        <pre>
+#include < iostream.h >
+#include < fstream.h >
+
+int main() {
+    // Open a new text file named "example.txt" for writing
+    std::ofstream outFile("example.txt");
+
+    // Check if the file is opened successfully
+    if (!outFile) {
+        std::cerr << "Failed to create the file.\n";
+        return 1;
+    }
+
+    // Write some text into the file
+    outFile << "This is a sample text written into the file.\n";
+    outFile << "You can add more lines as needed.\n";
+
+    // Close the file
+    outFile.close();
+
+    std::cout << "Text has been written to the file successfully.\n";
+
+    return 0;
+}
+
+
+        </pre>
+        <h2>Output:</h2>
+        <pre>
+            This is a sample text written into the file.
+            You can add more lines as needed.
+            
+            Contents of the file:
+            This is a sample text written into the file.
+            You can add more lines as needed.
+        </pre>
+    </body>
+</html>
